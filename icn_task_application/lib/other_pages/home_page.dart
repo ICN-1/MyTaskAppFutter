@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:icn_task_application/other_pages/new_task_or_project.dart';
 import 'package:icn_task_application/reusable%20widgets/big_button.dart';
 import 'package:icn_task_application/reusable%20widgets/floatingButton.dart';
+import 'package:icn_task_application/reusable%20widgets/new_alert_dialog.dart';
 import 'package:icn_task_application/reusable%20widgets/rectangular_cards.dart';
 import 'package:icn_task_application/reusable%20widgets/square_cards.dart';
 import 'package:intl/intl.dart';
@@ -19,8 +20,11 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   final _nameController = TextEditingController();
   final _descriptionController = TextEditingController();
+  TextEditingController _nameControllerEdit = TextEditingController();
+  TextEditingController _descriptionControllerEdit = TextEditingController();
   List taskList = [];
-  int totalNumberTask = 0, totalCompletedTask = 0, num = 0;
+  int totalNumberTask = 0, totalCompletedTask = 0, num = 0, index2 = 0;
+  bool isTrue = true;
 
   void save(){
     setState(() {
@@ -34,6 +38,48 @@ class _HomePageState extends State<HomePage> {
       
     });
     Navigator.of(context).pop();
+  }
+
+  void edit(){
+    setState(() {
+      _nameController.clear();
+      _descriptionController.clear();
+    });
+    Navigator.of(context).pop();
+  }
+
+  void onEdit(index){
+    setState(() {
+      taskList[index] = [
+        _nameControllerEdit.text,
+        _descriptionControllerEdit.text,
+        taskList[index][2], 
+      ];
+      _nameControllerEdit.clear();
+      _descriptionControllerEdit.clear();
+    });
+  }
+
+  void onSelect(name, description, index){
+    _nameControllerEdit.text = name;
+    _descriptionControllerEdit.text = description;
+    
+    showDialog(
+      context: context, 
+      builder: ((context) => CreateAlertDialog(
+        taskName: 'Task Name', 
+        taskDescription: 'Task Description', 
+        taskNameHint: 'Give your project a name...', 
+        taskDescriptionHint: 'Give your project a description...', 
+        taskNameController: _nameControllerEdit, 
+        taskDescriptionController: _descriptionControllerEdit, 
+        dialogName: 'Edit Task', 
+        onEdit: () => onEdit(index),
+        onSave: () {
+          edit();
+        }
+      )),
+    );
   }
 
   void taskCompleted(bool? value, int index){
@@ -183,6 +229,7 @@ class _HomePageState extends State<HomePage> {
                 itemCount: taskList.length,
                 itemBuilder: (context, index){
                   return RectangularCard(
+                    onSelect: () => onSelect(taskList[index][0], taskList[index][1], index),
                     onChanged: (value) => taskCompleted(value, index),
                     onDelete: (value) => deleteTask(index),
                     isDone: taskList[index][2],
@@ -197,6 +244,7 @@ class _HomePageState extends State<HomePage> {
       ),
 
       floatingActionButton: FloatingButton(
+        heroTag: 'create_new_hero_tag',
         backgroundColor: Colors.indigoAccent[400]!,
         icon: Icons.add_rounded,
         iconColor: Colors.white,

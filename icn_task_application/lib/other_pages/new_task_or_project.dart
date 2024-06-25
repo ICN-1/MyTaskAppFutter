@@ -3,12 +3,16 @@ import 'package:icn_task_application/reusable%20widgets/floatingButton.dart';
 import 'package:icn_task_application/reusable%20widgets/new_alert_dialog.dart';
 
 class FloatBtnOptions extends StatelessWidget {
-  FloatBtnOptions({super.key, required this.onSave, 
-  required this.nameController, required this.descriptionController});
+  FloatBtnOptions({
+    Key? key, 
+    required this.onSave, 
+    required this.nameController, 
+    required this.descriptionController
+  }) : super(key: key);
 
   final VoidCallback onSave;
   final TextEditingController nameController;
-  final descriptionController;
+  final TextEditingController descriptionController;
 
   @override
   Widget build(BuildContext context) {
@@ -37,6 +41,7 @@ class FloatBtnOptions extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(left: 10.0),
                     child: FloatingButton(
+                      heroTag: 'new_tadk_hero_tag',
                       icon: Icons.check_circle_outline_rounded,
                       onPressed: () {
                         Navigator.of(context).pop();
@@ -80,6 +85,7 @@ class FloatBtnOptions extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.only(left: 10.0),
                       child: FloatingButton(
+                        heroTag: 'new_project_hero_tag',
                         icon: Icons.description_outlined,
                         onPressed: () {
                           // Navigator.of(context).pop();
@@ -113,6 +119,7 @@ class FloatBtnOptions extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min, 
                   children: [
                     FloatingButton(
+                      heroTag: 'close_hero_tag',
                       icon: Icons.close_outlined,
                       onPressed: () {
                         Navigator.pop(context); 

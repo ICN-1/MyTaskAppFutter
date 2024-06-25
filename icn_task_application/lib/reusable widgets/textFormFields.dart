@@ -26,32 +26,6 @@ class _MyTextFieldState extends State<MyTextField> {
           errorMessage = null;
         }
       }
-
-      // if (widget.fieldHeader == 'Name') {
-      //   if (value!.isEmpty) {
-      //     errorMessage = 'Name field is empty';
-      //   } else if (value.length < 5) {
-      //     errorMessage = 'Your Name is too short.';
-      //   } else {
-      //     errorMessage = null;
-      //   }
-      // } else if (widget.fieldHeader == 'Email') {
-      //   if (value!.isEmpty) {
-      //     errorMessage = 'Email field is empty';
-      //   } else if (!RegExp(r"^[a-zA-Z0-9.!#$%&'*+-/=?^_'{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+$").hasMatch(value)) {
-      //     errorMessage = 'Invalid Email';
-      //   } else {
-      //     errorMessage = null;
-      //   }
-      // } else if (widget.fieldHeader == 'Password') {
-        // if (value!.isEmpty) {
-        //   errorMessage = 'Password field is empty';
-        // } else if (value.length <= 8) {
-        //   errorMessage = 'Your password should be more than 8 characters.';
-        // } else {
-        //   errorMessage = null;
-        // }
-      // }
     });
   }
 
@@ -123,13 +97,13 @@ class _MyTextFieldState extends State<MyTextField> {
 
             validator: (value) {
               if (value!.isEmpty) {
-                return widget.fieldHeader + " field is too short.";
-              } else if (widget.fieldHeader == 'Email' && !RegExp(r"^[a-zA-Z0-9.!#$%&'*+-/=?^_'{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+$").hasMatch(value)) {
-                return "Invalid email address";
-              } else if (widget.fieldHeader == 'Name' && value!.length < 4){
-                return 'Your name is too short';
-              } else if (widget.fieldHeader == 'Password' && value!.length < 6){
-                return 'Password is too short';
+                return widget.fieldHeader + " field should not be empty.";
+              } else if (widget.fieldHeader == 'Email' && !RegExp(r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]{3,}@[a-zA-Z0-9]+\.[a-zA-Z]+$").hasMatch(value)) {
+                return "Your email address is invalid.";
+              } else if (widget.fieldHeader == 'Name' && value!.length < 5){
+                return 'Your name should be atleast five characters.';
+              } else if (widget.fieldHeader == 'Password' && value!.length < 9){
+                return 'Your password should contain at least nine characters.';
               }
             },
 

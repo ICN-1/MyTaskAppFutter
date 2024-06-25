@@ -10,12 +10,14 @@ class CreateAlertDialog extends StatefulWidget {
     required this.taskDescriptionHint, 
     required this.taskNameController, 
     required this.taskDescriptionController, 
-    required this.dialogName, required this.onSave
+    required this.dialogName, required this.onSave, this.editName, this.editHint, this.onEdit
   });
 
   final String dialogName, taskName, taskDescription, taskNameHint, taskDescriptionHint;
+  final String? editName, editHint;
   final TextEditingController taskNameController, taskDescriptionController;
   final VoidCallback onSave;
+  final Function()? onEdit;
 
   @override
   State<CreateAlertDialog> createState() => _CreateAlertDialogState();
@@ -79,6 +81,9 @@ class _CreateAlertDialogState extends State<CreateAlertDialog> {
                   ElevatedButton(
                     onPressed: (){
                       widget.onSave();
+                      if (widget.dialogName == 'Edit Task') {
+                        widget.onEdit!();
+                      }
                     }, 
                     child: Text(
                       'Create',
