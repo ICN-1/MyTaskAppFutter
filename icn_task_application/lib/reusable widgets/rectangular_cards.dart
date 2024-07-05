@@ -2,13 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 
 class RectangularCard extends StatelessWidget {
-  const RectangularCard({super.key, required this.isDone, required this.taskName, required this.taskDescription, this.onChanged, this.onDelete, this.onSelect});
+  const RectangularCard({
+    super.key, 
+    required this.isDone, 
+    required this.taskName, 
+    required this.taskDescription, 
+    this.onChanged, 
+    this.onDelete, 
+    this.onSelect, 
+    this.onEdit
+  });
   
   final String taskName, taskDescription;
   final bool isDone;
   final Function(bool?)? onChanged;
   final Function(BuildContext)? onDelete;
   final void Function()? onSelect;
+  final void Function()? onEdit;
 
   @override
   Widget build(BuildContext context) {
@@ -63,7 +73,15 @@ class RectangularCard extends StatelessWidget {
                     )
                   ]
                 ),
-              )
+              ),
+
+              trailing: GestureDetector(
+                onTap: onEdit,
+                child: Icon(
+                  Icons.create_rounded,
+                  color: Colors.indigoAccent[400],
+                ),
+              ),
             ),
           ),
         ),

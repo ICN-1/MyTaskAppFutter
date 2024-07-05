@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:icn_task_application/models/task.dart';
 import 'package:icn_task_application/reusable%20widgets/floatingButton.dart';
 import 'package:icn_task_application/reusable%20widgets/new_alert_dialog.dart';
 
@@ -6,11 +7,13 @@ class FloatBtnOptions extends StatelessWidget {
   const FloatBtnOptions({
     Key? key, 
     required this.onSave, 
+    required this.task,
     required this.nameController, 
     required this.descriptionController
   }) : super(key: key);
 
   final VoidCallback onSave;
+  final Task task;
   final TextEditingController nameController;
   final TextEditingController descriptionController;
 
@@ -53,8 +56,9 @@ class FloatBtnOptions extends StatelessWidget {
                             taskDescription: 'Task Description', 
                             taskNameHint: 'Give your task a name...', 
                             taskDescriptionHint: 'Give your task aescription...', 
-                            taskNameController: nameController, 
-                            taskDescriptionController: descriptionController, 
+                            task: task,
+                            nameController: nameController, 
+                            descriptionController: descriptionController, 
                             onSave: () {
                               onSave();
                             },

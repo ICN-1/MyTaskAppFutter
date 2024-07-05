@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:icn_task_application/models/task.dart';
 import 'package:icn_task_application/reusable%20widgets/textFormFields.dart';
 
 class CreateAlertDialog extends StatefulWidget {
@@ -8,14 +9,20 @@ class CreateAlertDialog extends StatefulWidget {
     required this.taskDescription, 
     required this.taskNameHint, 
     required this.taskDescriptionHint, 
-    required this.taskNameController, 
-    required this.taskDescriptionController, 
-    required this.dialogName, required this.onSave, this.editName, this.editHint, this.onEdit
+    required this.task,
+    required this.dialogName, 
+    required this.onSave, 
+    this.editName, 
+    this.editHint, 
+    this.onEdit, 
+    required this.nameController, 
+    required this.descriptionController
   });
 
   final String dialogName, taskName, taskDescription, taskNameHint, taskDescriptionHint;
   final String? editName, editHint;
-  final TextEditingController taskNameController, taskDescriptionController;
+  final Task task;
+  final TextEditingController nameController, descriptionController;
   final VoidCallback onSave;
   final Function()? onEdit;
 
@@ -24,6 +31,7 @@ class CreateAlertDialog extends StatefulWidget {
 }
 
 class _CreateAlertDialogState extends State<CreateAlertDialog> {
+
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
@@ -43,13 +51,13 @@ class _CreateAlertDialogState extends State<CreateAlertDialog> {
             MyTextField(
               fieldHeader: widget.taskName, 
               fieldHint: widget.taskNameHint,
-              nameController: widget.taskNameController,
+              nameController: widget.nameController,
             ),
         
             MyTextField(
               fieldHeader: widget.taskDescription, 
               fieldHint: widget.taskDescriptionHint,
-              nameController: widget.taskDescriptionController,
+              nameController: widget.descriptionController,
             ),
         
             Center(
