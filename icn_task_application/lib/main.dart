@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: Colors.purple[700]
       ),
-      home: Intro_Page(),
+      home: const Intro_Page(),
       debugShowCheckedModeBanner: false,
     );
   }

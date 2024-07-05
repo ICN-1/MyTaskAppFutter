@@ -3,7 +3,7 @@ import 'package:icn_task_application/reusable%20widgets/floatingButton.dart';
 import 'package:icn_task_application/reusable%20widgets/new_alert_dialog.dart';
 
 class FloatBtnOptions extends StatelessWidget {
-  FloatBtnOptions({
+  const FloatBtnOptions({
     Key? key, 
     required this.onSave, 
     required this.nameController, 
@@ -29,7 +29,7 @@ class FloatBtnOptions extends StatelessWidget {
               Row(
                 mainAxisSize: MainAxisSize.min, 
                 children: [
-                  Text(
+                  const Text(
                     'Create a Task',
                     style: TextStyle(
                       color: Colors.black,
@@ -73,7 +73,7 @@ class FloatBtnOptions extends StatelessWidget {
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Text(
+                    const Text(
                       'Create a Project',
                       style: TextStyle(
                         color: Colors.black,

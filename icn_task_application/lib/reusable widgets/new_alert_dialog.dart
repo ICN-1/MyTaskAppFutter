@@ -33,7 +33,7 @@ class _CreateAlertDialogState extends State<CreateAlertDialog> {
           children: [
             Text(
               widget.dialogName,
-              style: TextStyle(
+              style: const TextStyle(
                 color: Colors.black,
                 fontSize: 24
               ),
@@ -59,22 +59,22 @@ class _CreateAlertDialogState extends State<CreateAlertDialog> {
                   ElevatedButton(
                     onPressed: (){
                       Navigator.of(context).pop();
-                    }, 
-                    child: Text(
+                    },
+                    style: ButtonStyle(
+                      backgroundColor: WidgetStateProperty.all<Color>(Colors.grey),
+                      side: WidgetStateProperty.all<BorderSide>(
+                        const BorderSide(
+                          color: Colors.black,
+                          width: 1.0
+                        )
+                      )
+                    ), 
+                    child: const Text(
                       'Cancel',
                       style: TextStyle(
                         color: Colors.black,
                         fontSize: 16
                       ),
-                    ),
-                    style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all<Color>(Colors.grey),
-                      side: MaterialStateProperty.all<BorderSide>(
-                        BorderSide(
-                          color: Colors.black,
-                          width: 1.0
-                        )
-                      )
                     ),
                   ),
                       
@@ -84,16 +84,16 @@ class _CreateAlertDialogState extends State<CreateAlertDialog> {
                       if (widget.dialogName == 'Edit Task') {
                         widget.onEdit!();
                       }
-                    }, 
-                    child: Text(
+                    },
+                    style: ButtonStyle(
+                      backgroundColor: WidgetStateProperty.all<Color>(Colors.indigoAccent)
+                    ), 
+                    child: const Text(
                       'Create',
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 16
                       )
-                    ),
-                    style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all<Color>(Colors.indigoAccent)
                     ),
                   )
                 ],

@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 
@@ -17,7 +16,7 @@ class RectangularCard extends StatelessWidget {
       onTap: onSelect,
       child: Slidable(
         endActionPane: ActionPane(
-          motion: StretchMotion(), 
+          motion: const StretchMotion(), 
           children: [
             SlidableAction(
               onPressed: onDelete,
@@ -31,12 +30,12 @@ class RectangularCard extends StatelessWidget {
           elevation: 3.0,
           color: Colors.white,
           child: Padding(
-            padding: EdgeInsets.all(10.0),
+            padding: const EdgeInsets.all(10.0),
             child: ListTile(
               leading: Checkbox(
                 value: isDone, 
                 onChanged: onChanged,
-                shape: CircleBorder(),
+                shape: const CircleBorder(),
                 checkColor: Colors.white,
                 activeColor: Colors.indigoAccent[400]
               ),
@@ -56,7 +55,7 @@ class RectangularCard extends StatelessWidget {
                 
                     Text(
                       taskDescription,
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: Colors.black,
                         fontSize: 16.0,
                         fontWeight: FontWeight.bold

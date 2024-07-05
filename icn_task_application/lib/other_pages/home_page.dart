@@ -1,7 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:icn_task_application/other_pages/new_task_or_project.dart';
-import 'package:icn_task_application/reusable%20widgets/big_button.dart';
 import 'package:icn_task_application/reusable%20widgets/floatingButton.dart';
 import 'package:icn_task_application/reusable%20widgets/new_alert_dialog.dart';
 import 'package:icn_task_application/reusable%20widgets/rectangular_cards.dart';
@@ -20,8 +18,8 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   final _nameController = TextEditingController();
   final _descriptionController = TextEditingController();
-  TextEditingController _nameControllerEdit = TextEditingController();
-  TextEditingController _descriptionControllerEdit = TextEditingController();
+  final TextEditingController _nameControllerEdit = TextEditingController();
+  final TextEditingController _descriptionControllerEdit = TextEditingController();
   List taskList = [];
   int totalNumberTask = 0, totalCompletedTask = 0, num = 0, index2 = 0;
   bool isTrue = true;
@@ -96,11 +94,11 @@ class _HomePageState extends State<HomePage> {
 
   void numberTask() {
     int completedCount = 0;
-    taskList.forEach((task) {
+    for (var task in taskList) {
       if (task[2] == true) {
         completedCount++;
       }
-    });
+    }
     setState(() {
       totalNumberTask = taskList.length;
       totalCompletedTask = completedCount;
@@ -127,7 +125,7 @@ class _HomePageState extends State<HomePage> {
               alignment: Alignment.centerLeft,
               child: Text(
                 formattedDate,
-                style: TextStyle(
+                style: const TextStyle(
               
                 )
               ),
@@ -141,7 +139,7 @@ class _HomePageState extends State<HomePage> {
                     alignment: Alignment.centerLeft,
                     child: Text(
                       'Hello, ${widget.name ?? 'Guest'} 👋',
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 24.0,
                         fontWeight: FontWeight.bold,
                       ),
@@ -149,12 +147,12 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
       
-                Row(
+                const Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Icon(Icons.search_rounded),
                     Padding(
-                      padding: const EdgeInsets.only(left: 10.0),
+                      padding: EdgeInsets.only(left: 10.0),
                       child: Icon(Icons.notifications_none_rounded),
                     ),
                   ],
@@ -206,13 +204,13 @@ class _HomePageState extends State<HomePage> {
                         borderRadius: BorderRadius.circular(30.0),
                         color: Colors.indigoAccent[400]
                       ),
-                      child: Padding(
+                      child: const Padding(
                         padding: EdgeInsets.all(5.0),
                       ),
                     ),
                   ),
               
-                  Text(
+                  const Text(
                     'Tasks of the day',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,

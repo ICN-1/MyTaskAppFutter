@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class SquareCards extends StatelessWidget {
@@ -26,7 +25,7 @@ class SquareCards extends StatelessWidget {
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
                   cardIcon,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 18.0
                   ),
                 ),
@@ -48,7 +47,7 @@ class SquareCards extends StatelessWidget {
               padding: const EdgeInsets.only(top: 5.0),
               child: Text(
                 cardNumber,
-                style: TextStyle(
+                style: const TextStyle(
                   color: Colors.black,
                   fontWeight: FontWeight.bold,
                   fontSize: 20.0
