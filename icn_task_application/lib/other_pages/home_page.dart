@@ -137,7 +137,7 @@ class _HomePageState extends State<HomePage> {
                 itemBuilder: (context, index) {
                   final task = taskController.taskList[index];
                   return RectangularCard(
-                    onSelect: () => Get.dialog(TaskDetailsScreen(task: task)),
+                    onSelect: () => Get.to(TaskDetailsScreen(task: task)),
                     onEdit: () => taskController.editTask(index, context, task),
                     onChanged: (value) => taskController.toggleTaskCompletion(index),
                     onDelete: (context) => taskController.deleteTask(index),
