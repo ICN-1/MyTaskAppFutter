@@ -14,7 +14,7 @@ class FloatingButton extends StatelessWidget {
       heroTag: heroTag,
       onPressed: onPressed,
       backgroundColor: backgroundColor,
-      shape: CircleBorder(),
+      shape: const CircleBorder(),
       child: Icon(
         icon,
         color: iconColor,

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:icn_task_application/other_pages/createAcc_page.dart';
 
 class MyButton extends StatelessWidget {
   const MyButton({Key? key, required this.text, required this.backgroundColor, required this.textColor, required this.isIcon, required this.onPressed}) : super(key: key);
@@ -11,13 +10,13 @@ class MyButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: double.infinity,
       child: ElevatedButton(
         onPressed: onPressed,
         style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all<Color>(backgroundColor),
-          side: MaterialStateProperty.all<BorderSide>(
+          backgroundColor: WidgetStateProperty.all<Color>(backgroundColor),
+          side: WidgetStateProperty.all<BorderSide>(
             BorderSide(
               color: Colors.grey[200]!,
               width: 1.0
@@ -31,8 +30,8 @@ class MyButton extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               if (isIcon)
-                Padding(
-                  padding: const EdgeInsets.only(right: 5),
+                const Padding(
+                  padding: EdgeInsets.only(right: 5),
                   child: Image(
                     height: 20,
                     width: 20,

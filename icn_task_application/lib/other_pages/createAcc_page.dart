@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:icn_task_application/reusable%20widgets/big_button.dart';
 import 'package:icn_task_application/reusable%20widgets/bottom_navigation_bar.dart';
@@ -36,7 +35,7 @@ class _CreateAccountState extends State<CreateAccount> {
 
   @override
   Widget build(BuildContext context) {
-    double _statusBarHeight = MediaQuery.of(context).padding.top + 10.0;
+    double statusBarHeight = MediaQuery.of(context).padding.top + 10.0;
 
     return Scaffold(
       body: SingleChildScrollView(
@@ -47,8 +46,8 @@ class _CreateAccountState extends State<CreateAccount> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Padding(
-                  padding: EdgeInsets.fromLTRB(20.0, _statusBarHeight, 20.0, 10.0),
-                  child: Text(
+                  padding: EdgeInsets.fromLTRB(20.0, statusBarHeight, 20.0, 10.0),
+                  child: const Text(
                     'Create an Account',
                     style: TextStyle(
                       color: Colors.black,
@@ -96,7 +95,7 @@ class _CreateAccountState extends State<CreateAccount> {
                       child: RichText(
                         text: TextSpan(
                           text: 'Accept ',
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 18.0,
                             color: Colors.black
@@ -165,7 +164,7 @@ class _CreateAccountState extends State<CreateAccount> {
                     width: 120,
                   ),
               
-                  Text(
+                  const Text(
                     '  Or register with  ',
                     style: TextStyle(
                       fontSize: 14.0,
@@ -194,7 +193,7 @@ class _CreateAccountState extends State<CreateAccount> {
               ),
             ),
               
-            Padding(
+            const Padding(
                 padding: EdgeInsets.fromLTRB(0.0, 20.0, 0.0, 50.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,

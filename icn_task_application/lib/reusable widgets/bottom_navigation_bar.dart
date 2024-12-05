@@ -23,9 +23,9 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar>{
     super.initState();
     _pages = [
       HomePage(name: widget.name),
-      MyProjects(),
-      MyCalendar(),
-      MyMenu()
+      const MyProjects(),
+      const MyCalendar(),
+      const MyMenu()
     ];
   }
 
@@ -39,7 +39,7 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar>{
   Widget build(BuildContext context) {
     return Scaffold(
       body: _pages[_tabIndex],
-      bottomNavigationBar: Container(
+      bottomNavigationBar: SizedBox(
         height: 100,
         child: BottomNavigationBar(
           backgroundColor: Colors.grey[100],
@@ -47,7 +47,7 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar>{
           showUnselectedLabels: true,
           currentIndex: _tabIndex,
           onTap: (index) => _changeTab(index),
-          items: [
+          items: const [
             BottomNavigationBarItem(
               icon: Icon(Icons.home_outlined),
               label: 'Home'

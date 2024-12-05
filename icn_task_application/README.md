@@ -16,4 +16,4 @@ For help getting started with Flutter development, view the
 samples, guidance on mobile development, and a full API reference.
 
 ## Documentation
-For more information, visit the [Appetize Link](https://appetize.io/app/d7vwdgo5tj5gasrgh6jty3bu6m).
+For more information, visit the [Appetize Link](https://appetize.io/app/b_xleqd3yprfpuhktln67mcc5lti).

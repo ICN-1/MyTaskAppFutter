@@ -10,7 +10,7 @@ class Intro_Page extends StatelessWidget {
       context, 
       MaterialPageRoute(
         builder: (
-          (context) => CreateAccount()
+          (context) => const CreateAccount()
         )
       )
     );
@@ -18,7 +18,7 @@ class Intro_Page extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double _statusBarHeight = MediaQuery.of(context).padding.top + 10.0;
+    double statusBarHeight = MediaQuery.of(context).padding.top + 10.0;
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -26,8 +26,8 @@ class Intro_Page extends StatelessWidget {
         child: Column(
           children: [
             Padding(
-              padding: EdgeInsets.fromLTRB(0.0, _statusBarHeight, 0.0, 0.0),
-              child: Image(
+              padding: EdgeInsets.fromLTRB(0.0, statusBarHeight, 0.0, 0.0),
+              child: const Image(
                 height: 350,
                 width: 350,
                 image: AssetImage('assets/intro_page_img.png')
@@ -54,7 +54,7 @@ class Intro_Page extends StatelessWidget {
                         fontWeight: FontWeight.bold
                       )
                     ),
-                    TextSpan(
+                    const TextSpan(
                       text: '!',
                       style: TextStyle(
                         color: Colors.black,
@@ -67,8 +67,8 @@ class Intro_Page extends StatelessWidget {
               )
             ),
     
-            Padding(
-              padding: const EdgeInsets.fromLTRB(30.0, 5.0, 30.0, 10.0),
+            const Padding(
+              padding: EdgeInsets.fromLTRB(30.0, 5.0, 30.0, 10.0),
               child: Text(
                 'Manage all your projects and tasks in one place',
                 style: TextStyle(
@@ -93,7 +93,7 @@ class Intro_Page extends StatelessWidget {
               )
             ),
     
-            Padding(
+            const Padding(
               padding: EdgeInsets.fromLTRB(0.0, 20.0, 0.0, 0.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,

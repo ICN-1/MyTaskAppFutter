@@ -37,10 +37,10 @@ class _MyTextFieldState extends State<MyTextField> {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Padding(
-              padding: EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 5.0),
+              padding: const EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 5.0),
               child: Text(
                 widget.fieldHeader,
-                style: TextStyle(
+                style: const TextStyle(
                   color: Colors.black,
                   fontSize: 18.0,
                   fontWeight: FontWeight.bold
@@ -51,9 +51,9 @@ class _MyTextFieldState extends State<MyTextField> {
         ),
 
         Padding(
-          padding: EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 5.0),
+          padding: const EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 5.0),
           child: TextFormField(
-            style: TextStyle(
+            style: const TextStyle(
               fontWeight: FontWeight.w500,
               fontSize: 16.0
             ),
@@ -63,14 +63,14 @@ class _MyTextFieldState extends State<MyTextField> {
             decoration: InputDecoration(
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10.0),
-                borderSide: BorderSide(
+                borderSide: const BorderSide(
                   color: Color.fromARGB(255, 224, 224, 224)
                 )
               ),
 
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10.0),
-                borderSide: BorderSide(
+                borderSide: const BorderSide(
                   width: 2.0,
                   color: Color.fromARGB(255, 63, 81, 181)
                 )
@@ -97,14 +97,15 @@ class _MyTextFieldState extends State<MyTextField> {
 
             validator: (value) {
               if (value!.isEmpty) {
-                return widget.fieldHeader + " field should not be empty.";
+                return "${widget.fieldHeader} field should not be empty.";
               } else if (widget.fieldHeader == 'Email' && !RegExp(r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]{3,}@[a-zA-Z0-9]+\.[a-zA-Z]+$").hasMatch(value)) {
                 return "Your email address is invalid.";
-              } else if (widget.fieldHeader == 'Name' && value!.length < 5){
+              } else if (widget.fieldHeader == 'Name' && value.length < 5){
                 return 'Your name should be atleast five characters.';
-              } else if (widget.fieldHeader == 'Password' && value!.length < 9){
+              } else if (widget.fieldHeader == 'Password' && value.length < 9){
                 return 'Your password should contain at least nine characters.';
               }
+              return null;
             },
 
             controller: widget.nameController,
@@ -123,7 +124,7 @@ class _MyTextFieldState extends State<MyTextField> {
                   Icons.check_circle_outline_rounded,
                   color: Colors.grey[600],
                 ),
-                SizedBox(width: 8),
+                const SizedBox(width: 8),
                 Expanded(
                   child: Text(
                     errorMessage!,
